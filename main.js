@@ -49,7 +49,7 @@ if (userInfo.email.startsWith("@")) {
     `Email: not valid email - <span>${email}</span> (symbol @ not find)`
   );
 } else {
-  createLiElement(userUl, `Email: <span>${email}</span> (symbol @ not find)`);
+  createLiElement(userUl, `Email: <span>${email}</span>`);
 }
 
 createLiElement(userUl, `Age: <span>${userInfo.age}</span>`);
