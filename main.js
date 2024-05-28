@@ -32,7 +32,7 @@ createLiElement(
   `Full name: <span>${userInfo.name} ${userInfo.surname}</span>`
 );
 
-let email = userInfo.email.toLocaleLowerCase;
+let email = userInfo.email.toLocaleLowerCase();
 if (userInfo.email.startsWith("@")) {
   createLiElement(
     userUl,
