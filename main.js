@@ -32,21 +32,24 @@ createLiElement(
   `Full name: <span>${userInfo.name} ${userInfo.surname}</span>`
 );
 
+let email = userInfo.email.toLocaleLowerCase;
 if (userInfo.email.startsWith("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${userInfo.email}</span> (symbol @ find on first place)`
+    `Email: not valid email - <span>${email}</span> (symbol @ find on first place)`
   );
 } else if (userInfo.email.endsWith("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${userInfo.email}</span> (symbol @ find on last place)`
+    `Email: not valid email - <span>${email}</span> (symbol @ find on last place)`
   );
 } else if (!userInfo.email.includes("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${userInfo.email}</span> (symbol @ not find)`
+    `Email: not valid email - <span>${email}</span> (symbol @ not find)`
   );
+} else {
+  createLiElement(userUl, `Email: <span>${email}</span> (symbol @ not find)`);
 }
 
 createLiElement(userUl, `Age: <span>${userInfo.age}</span>`);
