@@ -73,7 +73,7 @@ if (userInfo.email === "" || userInfo.email === "") {
   createLiElement(userUl, `Email: <span>${email}</span>`);
 }
 
-if ((userInfo.age = new Date().getFullYear())) {
+if ((userInfo.age == new Date().getFullYear())) {
   createLiElement(
     userUl,
     `Age: NOT VALID <span>you forgot write your year of birth.</span>`
