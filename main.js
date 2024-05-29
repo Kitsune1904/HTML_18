@@ -47,11 +47,8 @@ if (
 }
 
 let email = userInfo.email.toLowerCase();
-if (userInfo.email.startsWith("@")) {
-  createLiElement(
-    userUl,
-    `Email: NOT VALID email - <span>${email}</span> (symbol "@" find on first place)`
-  );
+if (userInfo.email === "" || userInfo.email === "") {
+  createLiElement(userUl, `Email: NOT VALID - <span>it cant be empty</span> `);
 } else if (userInfo.email.endsWith("@")) {
   createLiElement(
     userUl,
@@ -62,6 +59,11 @@ if (userInfo.email.startsWith("@")) {
     userUl,
     `Email: NOT VALID email - <span>${email}</span> (symbol "@" not find)`
   );
+} else if (userInfo.email.startsWith("@")) {
+  createLiElement(
+    userUl,
+    `Email: NOT VALID email - <span>${email}</span> (symbol "@" find on first place)`
+  );
 } else if (!userInfo.email.includes(".")) {
   createLiElement(
     userUl,
@@ -71,7 +73,12 @@ if (userInfo.email.startsWith("@")) {
   createLiElement(userUl, `Email: <span>${email}</span>`);
 }
 
-if (userInfo.age >= 150 || userInfo.age <= 0) {
+if ((userInfo.age = new Date().getFullYear())) {
+  createLiElement(
+    userUl,
+    `Age: NOT VALID <span>you forgot write your year of birth.</span>`
+  );
+} else if (userInfo.age >= 150 || userInfo.age <= 0) {
   createLiElement(userUl, `Age: NOT VALID <span>write your real age.</span>`);
 } else if (isNaN(userInfo.age)) {
   createLiElement(
