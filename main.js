@@ -27,29 +27,57 @@ Object.keys(userInfo).forEach((item, index) => {
       : (userInfo[item] = answer.replace(/ /g, ""));
 });
 
-createLiElement(
-  userUl,
-  `Full name: <span>${userInfo.name} ${userInfo.surname}</span>`
-);
+if (
+  userInfo.name.match(/\d+/) !== null ||
+  userInfo.surname.match(/\d+/) !== null
+) {
+  createLiElement(
+    userUl,
+    `Name: NOT VALID - <span>${userInfo.name} ${userInfo.surname} (it cant include numbers)</span> `
+  );
+} else if (userInfo.name === "" || userInfo.surname === "") {
+  createLiElement(userUl, `Name: NOT VALID - <span>it cant be empty</span> `);
+} else {
+  createLiElement(
+    userUl,
+    `Full name: <span>${
+      userInfo.name[0].toUpperCase() + userInfo.name.slice(1)
+    } ${userInfo.surname[0].toUpperCase() + userInfo.surname.slice(1)}</span>`
+  );
+}
 
-let email = userInfo.email.toLocaleLowerCase();
+let email = userInfo.email.toLowerCase();
 if (userInfo.email.startsWith("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${email}</span> (symbol @ find on first place)`
+    `Email: NOT VALID email - <span>${email}</span> (symbol "@" find on first place)`
   );
 } else if (userInfo.email.endsWith("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${email}</span> (symbol @ find on last place)`
+    `Email: NOT VALID email - <span>${email}</span> (symbol "@" find on last place)`
   );
 } else if (!userInfo.email.includes("@")) {
   createLiElement(
     userUl,
-    `Email: not valid email - <span>${email}</span> (symbol @ not find)`
+    `Email: NOT VALID email - <span>${email}</span> (symbol "@" not find)`
+  );
+} else if (!userInfo.email.includes(".")) {
+  createLiElement(
+    userUl,
+    `Email: NOT VALID email - <span>${email}</span> (symbol "." not find)`
   );
 } else {
   createLiElement(userUl, `Email: <span>${email}</span>`);
 }
 
-createLiElement(userUl, `Age: <span>${userInfo.age}</span>`);
+if (userInfo.age >= 150 || userInfo.age <= 0) {
+  createLiElement(userUl, `Age: NOT VALID <span>write your real age.</span>`);
+} else if (isNaN(userInfo.age)) {
+  createLiElement(
+    userUl,
+    `Age: NOT VALID <span> you must write NUMBERS</span>`
+  );
+} else {
+  createLiElement(userUl, `Age: <span>${userInfo.age}</span>`);
+}
