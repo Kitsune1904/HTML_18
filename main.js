@@ -33,10 +33,10 @@ if (
 ) {
   createLiElement(
     userUl,
-    `Name: NOT VALID - <span>${userInfo.name} ${userInfo.surname} (it cant include numbers)</span> `
+    `Name: NOT VALID - <span>${userInfo.name} ${userInfo.surname} (it can't include numbers)</span> `
   );
 } else if (userInfo.name === "" || userInfo.surname === "") {
-  createLiElement(userUl, `Name: NOT VALID - <span>it cant be empty</span> `);
+  createLiElement(userUl, `Name: NOT VALID - <span>it can't be empty</span> `);
 } else {
   createLiElement(
     userUl,
@@ -48,7 +48,7 @@ if (
 
 let email = userInfo.email.toLowerCase();
 if (userInfo.email === "" || userInfo.email === "") {
-  createLiElement(userUl, `Email: NOT VALID - <span>it cant be empty</span> `);
+  createLiElement(userUl, `Email: NOT VALID - <span>it can't be empty</span> `);
 } else if (userInfo.email.endsWith("@")) {
   createLiElement(
     userUl,
